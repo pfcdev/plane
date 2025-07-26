@@ -142,7 +142,7 @@ services:
 
   plane-minio:
     container_name: plane-minio
-    image: minio/minio
+    image: quay.io/minio/minio:RELEASE.2023-11-01T01-57-10Z-cpuv1
     restart: always
     command: server /export --console-address ":9090"
     volumes:
@@ -157,6 +157,9 @@ services:
     build:
       context: ./apps/proxy
       dockerfile: Dockerfile.ce
+    command: caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
+    volumes:
+      - ./apps/proxy/Caddyfile.fixed:/etc/caddy/Caddyfile  # <--- BU SATIRI EKLEYİN
     restart: always
     ports:
       - ${LISTEN_HTTP_PORT}:80

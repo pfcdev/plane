@@ -1,0 +1,170 @@
+{
+  "sidebar": {
+    "projects": "Projeler",
+    "pages": "Sayfalar",
+    "new_work_item": "Yeni İş Öğesi",
+    "home": "Ana Sayfa",
+    "your_work": "Çalışmalarım",
+    "inbox": "Gelen Kutusu",
+    "workspace": "Çalışma Alanı",
+    "views": "Görünümler",
+    "analytics": "Analiz",
+    "work_items": "İş Öğeleri",
+    "cycles": "Döngüler",
+    "modules": "Modüller",
+    "intake": "Gelen Kutusu",
+    "drafts": "Taslaklar",
+    "favorites": "Favoriler",
+    "pro": "Pro",
+    "upgrade": "Yükselt"
+  },
+  "auth": {
+    "common": {
+      "email": {
+        "label": "E-posta",
+        "placeholder": "isim@sirket.com",
+        "errors": {
+          "required": "E-posta zorunludur",
+          "invalid": "E-posta geçersiz"
+        }
+      },
+      "password": {
+        "label": "Şifre",
+        "set_password": "Bir şifre belirleyin",
+        "placeholder": "Şifre girin",
+        "confirm_password": {
+          "label": "Şifreyi doğrula",
+          "placeholder": "Şifreyi tekrar girin"
+        },
+        "current_password": {
+          "label": "Mevcut şifre"
+        },
+        "new_password": {
+          "label": "Yeni şifre",
+          "placeholder": "Yeni şifre girin"
+        },
+        "change_password": {
+          "label": {
+            "default": "Şifreyi değiştir",
+            "submitting": "Şifre değiştiriliyor"
+          }
+        },
+        "errors": {
+          "match": "Şifreler eşleşmiyor",
+          "empty": "Lütfen şifrenizi girin",
+          "length": "Şifre 8 karakterden uzun olmalıdır",
+          "strength": {
+            "weak": "Şifre zayıf",
+            "strong": "Şifre güçlü"
+          }
+        },
+        "submit": "Şifreyi ayarla",
+        "toast": {
+          "change_password": {
+            "success": {
+              "title": "Başarılı!",
+              "message": "Şifre başarıyla değiştirildi."
+            },
+            "error": {
+              "title": "Hata!",
+              "message": "Bir şeyler ters gitti. Lütfen tekrar deneyin."
+            }
+          }
+        }
+      },
+      "unique_code": {
+        "label": "Benzersiz kod",
+        "placeholder": "gets-sets-flys",
+        "paste_code": "E-postanıza gönderilen kodu yapıştırın",
+        "requesting_new_code": "Yeni kod talep ediliyor",
+        "sending_code": "Kod gönderiliyor"
+      },
+      "already_have_an_account": "Zaten bir hesabınız var mı?",
+      "login": "Giriş yap",
+      "create_account": "Hesap oluştur",
+      "new_to_plane": "Plane'de yeni misiniz?",
+      "back_to_sign_in": "Giriş ekranına dön",
+      "resend_in": "{seconds} saniye içinde yeniden gönder",
+      "sign_in_with_unique_code": "Benzersiz kod ile giriş yap",
+      "forgot_password": "Şifrenizi mi unuttunuz?"
+    },
+    "sign_up": {
+      "header": {
+        "label": "Ekibinizle iş yönetmeye başlamak için bir hesap oluşturun.",
+        "step": {
+          "email": {
+            "header": "Kaydol",
+            "sub_header": ""
+          },
+          "password": {
+            "header": "Kaydol",
+            "sub_header": "E-posta-şifre kombinasyonu kullanarak kaydolun."
+          },
+          "unique_code": {
+            "header": "Kaydol",
+            "sub_header": "Yukarıdaki e-posta adresine gönderilen benzersiz bir kodu kullanarak kaydolun."
+          }
+        }
+      },
+      "errors": {
+        "password": {
+          "strength": "Devam etmek için güçlü bir şifre belirlemeyi deneyin"
+        }
+      }
+    },
+    "sign_in": {
+      "header": {
+        "label": "Ekibinizle iş yönetmeye başlamak için giriş yapın.",
+        "step": {
+          "email": {
+            "header": "Giriş yap veya kaydol",
+            "sub_header": ""
+          },
+          "password": {
+            "header": "Giriş yap veya kaydol",
+            "sub_header": "Giriş yapmak için e-posta-şifre kombinasyonunuzu kullanın."
+          },
+          "unique_code": {
+            "header": "Giriş yap veya kaydol",
+            "sub_header": "Yukarıdaki e-posta adresine gönderilen benzersiz bir kodu kullanarak giriş yapın."
+          }
+        }
+      }
+    },
+    "forgot_password": {
+      "title": "Şifrenizi sıfırlayın",
+      "description": "Kullanıcı hesabınızın doğrulanmış e-posta adresini girin, size bir şifre sıfırlama bağlantısı göndereceğiz.",
+      "email_sent": "Sıfırlama bağlantısını e-posta adresinize gönderdik",
+      "send_reset_link": "Sıfırlama bağlantısını gönder",
+      "errors": {
+        "smtp_not_enabled": "Süper kullanıcınızın SMTP'yi etkinleştirmediğini görüyoruz, şifre sıfırlama bağlantısı gönderemeyeceğiz"
+      },
+      "toast": {
+        "success": {
+          "title": "E-posta gönderildi",
+          "message": "Şifrenizi sıfırlamak için bir bağlantı içeren e-posta için gelen kutunuzu kontrol edin. Birkaç dakika içinde görünmezse, spam klasörünüzü kontrol edin."
+        },
+        "error": {
+          "title": "Hata!",
+          "message": "Bir şeyler ters gitti. Lütfen tekrar deneyin."
+        }
+      }
+    },
+    "reset_password": {
+      "title": "Yeni şifre belirle",
+      "description": "Hesabınızı güçlü bir şifre ile güvence altına alın"
+    },
+    "set_password": {
+      "title": "Hesabınızı güvenceye alın",
+      "description": "Şifre belirlemek güvenli bir şekilde giriş yapmanıza yardımcı olur"
+    },
+    "sign_out": {
+      "toast": {
+        "error": {
+          "title": "Hata!",
+          "message": "Çıkış yapılamadı. Lütfen tekrar deneyin."
+        }
+      }
+    }
+  }
+}

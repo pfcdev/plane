@@ -2,7 +2,7 @@
   "aria_labels": {
     "projects_sidebar": {
       "workspace_logo": "Çalışma alanı logosu",
-      "open_workspace_switcher": "Çalışma alanı değiştiricisini aç",
+      "open_workspace_switcher": "Çalışma alanı seçiciyi aç",
       "open_user_menu": "Kullanıcı menüsünü aç",
       "open_command_palette": "Komut paletini aç",
       "open_extended_sidebar": "Genişletilmiş kenar çubuğunu aç",
@@ -21,7 +21,7 @@
       "close_project_menu": "Proje menüsünü kapat",
       "collapse_sidebar": "Kenar çubuğunu daralt",
       "expand_sidebar": "Kenar çubuğunu genişlet",
-      "edition_badge": "Ücretli planlar modalını aç"
+      "edition_badge": "Ücretli planlar penceresini aç"
     },
     "auth_forms": {
       "clear_email": "E-postayı temizle",

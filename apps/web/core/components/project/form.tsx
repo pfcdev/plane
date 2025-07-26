@@ -67,7 +67,7 @@ export const ProjectDetailsForm: FC<IProjectDetailsForm> = (props) => {
     },
   });
   // derived values
-  const currentNetwork = NETWORK_CHOICES.find((n) => n.key === project?.network);
+  const currentNetwork = NETWORK_CHOICES.find((n: any) => n.key === project?.network);
   const coverImage = watch("cover_image_url");
 
   useEffect(() => {
@@ -165,6 +165,9 @@ export const ProjectDetailsForm: FC<IProjectDetailsForm> = (props) => {
 
       logo_props: formData.logo_props,
       timezone: formData.timezone,
+      price: formData.price,
+      start_date: formData.start_date,
+      target_date: formData.target_date,
     };
     // if unsplash or a pre-defined image is uploaded, delete the old uploaded asset
     if (formData.cover_image_url?.startsWith("http")) {
@@ -210,7 +213,7 @@ export const ProjectDetailsForm: FC<IProjectDetailsForm> = (props) => {
                   className="flex items-center justify-center"
                   buttonClassName="flex h-[52px] w-[52px] flex-shrink-0 items-center justify-center rounded-lg bg-white/10"
                   label={<Logo logo={value} size={28} />}
-                  onChange={(val) => {
+                  onChange={(val: any) => {
                     let logoValue = {};
 
                     if (val?.type === "emoji")
@@ -389,7 +392,7 @@ export const ProjectDetailsForm: FC<IProjectDetailsForm> = (props) => {
                     disabled={!isAdmin}
                     // optionsClassName="w-full"
                   >
-                    {NETWORK_CHOICES.map((network) => (
+                    {NETWORK_CHOICES.map((network: any) => (
                       <CustomSelect.Option key={network.key} value={network.key}>
                         <div className="flex items-start gap-2">
                           <ProjectNetworkIcon iconKey={network.iconKey} className="h-3.5 w-3.5" />
@@ -403,6 +406,64 @@ export const ProjectDetailsForm: FC<IProjectDetailsForm> = (props) => {
                   </CustomSelect>
                 );
               }}
+            />
+          </div>
+          <div className="flex flex-col gap-1">
+            <h4 className="text-sm">Price</h4>
+            <Controller
+              control={control}
+              name="price"
+              render={({ field: { value, onChange, ref } }) => (
+                <Input
+                  id="price"
+                  name="price"
+                  type="number"
+                  ref={ref}
+                  value={value}
+                  onChange={onChange}
+                  placeholder="Enter price"
+                  className="w-full font-medium"
+                  disabled={!isAdmin}
+                />
+              )}
+            />
+          </div>
+          <div className="flex flex-col gap-1">
+            <h4 className="text-sm">Start Date</h4>
+            <Controller
+              control={control}
+              name="start_date"
+              render={({ field: { value, onChange, ref } }) => (
+                <Input
+                  id="start_date"
+                  name="start_date"
+                  type="date"
+                  ref={ref}
+                  value={value ? new Date(value).toISOString().split("T")[0] : ""}
+                  onChange={onChange}
+                  className="w-full font-medium"
+                  disabled={!isAdmin}
+                />
+              )}
+            />
+          </div>
+          <div className="flex flex-col gap-1">
+            <h4 className="text-sm">Target Date</h4>
+            <Controller
+              control={control}
+              name="target_date"
+              render={({ field: { value, onChange, ref } }) => (
+                <Input
+                  id="target_date"
+                  name="target_date"
+                  type="date"
+                  ref={ref}
+                  value={value ? new Date(value).toISOString().split("T")[0] : ""}
+                  onChange={onChange}
+                  className="w-full font-medium"
+                  disabled={!isAdmin}
+                />
+              )}
             />
           </div>
           <div className="flex flex-col gap-1 col-span-1 sm:col-span-2 xl:col-span-1">
