@@ -28,8 +28,9 @@ import { ProjectNetworkIcon } from "@/components/project";
 // helpers
 // hooks
 import { captureError, captureSuccess } from "@/helpers/event-tracker.helper";
-import { useProject } from "@/hooks/store";
+import { useProject, useCustomer } from "@/hooks/store";
 import { usePlatformOS } from "@/hooks/use-platform-os";
+import useSWR from "swr";
 // services
 import { ProjectService } from "@/services/project";
 
@@ -48,7 +49,14 @@ export const ProjectDetailsForm: FC<IProjectDetailsForm> = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   // store hooks
   const { updateProject } = useProject();
+  const { customers, fetchCustomers } = useCustomer();
   const { isMobile } = usePlatformOS();
+
+  useSWR(workspaceSlug ? `CUSTOMERS_${workspaceSlug}` : null, () => {
+    if (workspaceSlug) {
+      fetchCustomers(workspaceSlug);
+    }
+  });
 
   // form info
   const {
@@ -168,6 +176,7 @@ export const ProjectDetailsForm: FC<IProjectDetailsForm> = (props) => {
       price: formData.price,
       start_date: formData.start_date,
       target_date: formData.target_date,
+      customer: formData.customer,
     };
     // if unsplash or a pre-defined image is uploaded, delete the old uploaded asset
     if (formData.cover_image_url?.startsWith("http")) {
@@ -464,6 +473,39 @@ export const ProjectDetailsForm: FC<IProjectDetailsForm> = (props) => {
                   disabled={!isAdmin}
                 />
               )}
+            />
+          </div>
+          <div className="flex flex-col gap-1">
+            <h4 className="text-sm">Customer</h4>
+            <Controller
+              name="customer"
+              control={control}
+              render={({ field: { value, onChange } }) => {
+                const customerOptions = customers ? Object.values(customers).map((customer) => ({
+                  value: customer.id,
+                  label: customer.name,
+                })) : [];
+                return (
+                  <CustomSelect
+                    value={value}
+                    onChange={onChange}
+                    label={
+                      customerOptions.find((c) => c.value === value)?.label ?? (
+                        <span className="text-custom-text-400">Select Customer</span>
+                      )
+                    }
+                    buttonClassName="!border-custom-border-200 !shadow-none font-medium rounded-md"
+                    input
+                    disabled={!isAdmin}
+                  >
+                    {customerOptions.map((customer) => (
+                      <CustomSelect.Option key={customer.value} value={customer.value}>
+                        {customer.label}
+                      </CustomSelect.Option>
+                    ))}
+                  </CustomSelect>
+                );
+              }}
             />
           </div>
           <div className="flex flex-col gap-1 col-span-1 sm:col-span-2 xl:col-span-1">

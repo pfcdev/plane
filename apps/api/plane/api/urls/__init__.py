@@ -7,6 +7,9 @@ from .intake import urlpatterns as intake_patterns
 from .member import urlpatterns as member_patterns
 from .asset import urlpatterns as asset_patterns
 from .user import urlpatterns as user_patterns
+from .customer import urlpatterns as customer_patterns
+from .collection import urlpatterns as collection_patterns
+from .summary import urlpatterns as summary_patterns
 
 urlpatterns = [
     *asset_patterns,
@@ -18,4 +21,7 @@ urlpatterns = [
     *intake_patterns,
     *member_patterns,
     *user_patterns,
+    *customer_patterns,
+    *collection_patterns,
+    *summary_patterns,
 ]

@@ -4,7 +4,7 @@ import { FALLBACK_LANGUAGE, LANGUAGE_STORAGE_KEY } from "@plane/i18n";
 // plane web store
 import { AnalyticsStore, IAnalyticsStore } from "@/plane-web/store/analytics.store";
 import { CommandPaletteStore, ICommandPaletteStore } from "@/plane-web/store/command-palette.store";
-import { RootStore } from "@/plane-web/store/root.store";
+import { RootStore as BaseRootStore } from "@/plane-web/store/root.store";
 import { IStateStore, StateStore } from "@/plane-web/store/state.store";
 // stores
 import { CycleStore, ICycleStore } from "./cycle.store";
@@ -32,10 +32,11 @@ import { ThemeStore, IThemeStore } from "./theme.store";
 import { ITransientStore, TransientStore } from "./transient.store";
 import { IUserStore, UserStore } from "./user";
 import { IWorkspaceRootStore, WorkspaceRootStore } from "./workspace";
+import { CustomerStore, ICustomerStore } from "./customer.store";
 
 enableStaticRendering(typeof window === "undefined");
 
-export class CoreRootStore {
+export class RootStore {
   workspaceRoot: IWorkspaceRootStore;
   projectRoot: IProjectRootStore;
   memberRoot: IMemberRootStore;
@@ -64,29 +65,30 @@ export class CoreRootStore {
   transient: ITransientStore;
   stickyStore: IStickyStore;
   editorAssetStore: IEditorAssetStore;
+  customerStore: ICustomerStore;
 
   constructor() {
     this.router = new RouterStore();
     this.commandPalette = new CommandPaletteStore();
     this.instance = new InstanceStore();
-    this.user = new UserStore(this as unknown as RootStore);
+    this.user = new UserStore(this as unknown as BaseRootStore);
     this.theme = new ThemeStore();
     this.workspaceRoot = new WorkspaceRootStore(this);
     this.projectRoot = new ProjectRootStore(this);
-    this.memberRoot = new MemberRootStore(this as unknown as RootStore);
+    this.memberRoot = new MemberRootStore(this as unknown as BaseRootStore);
     this.cycle = new CycleStore(this);
     this.cycleFilter = new CycleFilterStore(this);
     this.module = new ModulesStore(this);
     this.moduleFilter = new ModuleFilterStore(this);
     this.projectView = new ProjectViewStore(this);
     this.globalView = new GlobalViewStore(this);
-    this.issue = new IssueRootStore(this as unknown as RootStore);
-    this.state = new StateStore(this as unknown as RootStore);
+    this.issue = new IssueRootStore(this as unknown as BaseRootStore);
+    this.state = new StateStore(this as unknown as BaseRootStore);
     this.label = new LabelStore(this);
     this.dashboard = new DashboardStore(this);
     this.multipleSelect = new MultipleSelectStore();
     this.projectInbox = new ProjectInboxStore(this);
-    this.projectPages = new ProjectPageStore(this as unknown as RootStore);
+    this.projectPages = new ProjectPageStore(this as unknown as BaseRootStore);
     this.projectEstimate = new ProjectEstimateStore(this);
     this.workspaceNotification = new WorkspaceNotificationStore(this);
     this.favorite = new FavoriteStore(this);
@@ -94,6 +96,7 @@ export class CoreRootStore {
     this.stickyStore = new StickyStore();
     this.editorAssetStore = new EditorAssetStore();
     this.analytics = new AnalyticsStore();
+    this.customerStore = new CustomerStore(this as unknown as BaseRootStore);
   }
 
   resetOnSignOut() {
@@ -103,22 +106,22 @@ export class CoreRootStore {
     this.router = new RouterStore();
     this.commandPalette = new CommandPaletteStore();
     this.instance = new InstanceStore();
-    this.user = new UserStore(this as unknown as RootStore);
+    this.user = new UserStore(this as unknown as BaseRootStore);
     this.workspaceRoot = new WorkspaceRootStore(this);
     this.projectRoot = new ProjectRootStore(this);
-    this.memberRoot = new MemberRootStore(this as unknown as RootStore);
+    this.memberRoot = new MemberRootStore(this as unknown as BaseRootStore);
     this.cycle = new CycleStore(this);
     this.cycleFilter = new CycleFilterStore(this);
     this.module = new ModulesStore(this);
     this.moduleFilter = new ModuleFilterStore(this);
     this.projectView = new ProjectViewStore(this);
     this.globalView = new GlobalViewStore(this);
-    this.issue = new IssueRootStore(this as unknown as RootStore);
-    this.state = new StateStore(this as unknown as RootStore);
+    this.issue = new IssueRootStore(this as unknown as BaseRootStore);
+    this.state = new StateStore(this as unknown as BaseRootStore);
     this.label = new LabelStore(this);
     this.dashboard = new DashboardStore(this);
     this.projectInbox = new ProjectInboxStore(this);
-    this.projectPages = new ProjectPageStore(this as unknown as RootStore);
+    this.projectPages = new ProjectPageStore(this as unknown as BaseRootStore);
     this.multipleSelect = new MultipleSelectStore();
     this.projectEstimate = new ProjectEstimateStore(this);
     this.workspaceNotification = new WorkspaceNotificationStore(this);
@@ -126,5 +129,6 @@ export class CoreRootStore {
     this.transient = new TransientStore();
     this.stickyStore = new StickyStore();
     this.editorAssetStore = new EditorAssetStore();
+    this.customerStore = new CustomerStore(this as unknown as BaseRootStore);
   }
 }

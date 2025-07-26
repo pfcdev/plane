@@ -70,6 +70,13 @@ class Project(BaseModel):
     workspace = models.ForeignKey(
         "db.WorkSpace", on_delete=models.CASCADE, related_name="workspace_project"
     )
+    customer = models.ForeignKey(
+        "db.Customer",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="projects",
+    )
     identifier = models.CharField(
         max_length=12, verbose_name="Project Identifier", db_index=True
     )

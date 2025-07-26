@@ -54,6 +54,7 @@ export interface IProject extends IPartialProject {
   price?: number;
   start_date?: string | null;
   target_date?: string | null;
+  customer?: string | null;
 }
 
 export type TProjectAnalyticsCountParams = {

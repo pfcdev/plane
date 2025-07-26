@@ -83,3 +83,5 @@ from .label import Label
 from .device import Device, DeviceSession
 
 from .sticky import Sticky
+from .customer import Customer
+from .collection import Collection

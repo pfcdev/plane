@@ -20,6 +20,11 @@ const TABS = {
     label: "Projects",
     href: `/settings/projects/`,
   },
+  customers: {
+    key: "customers",
+    label: "Customers",
+    href: `/settings/customers/`,
+  },
 };
 
 const SettingsTabs = observer(() => {
@@ -33,7 +38,9 @@ const SettingsTabs = observer(() => {
     ? TABS.projects
     : pathname.includes(TABS.account.href)
       ? TABS.account
-      : TABS.workspace;
+      : pathname.includes(TABS.customers.href)
+        ? TABS.customers
+        : TABS.workspace;
 
   return (
     <div className="flex w-fit min-w-fit items-center justify-between gap-1.5 rounded-md text-sm p-0.5 bg-custom-background-80">
