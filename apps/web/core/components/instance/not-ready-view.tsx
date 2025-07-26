@@ -11,15 +11,14 @@ import { Button } from "@plane/ui";
 // assets
 import PlaneBackgroundPatternDark from "@/public/auth/background-pattern-dark.svg";
 import PlaneBackgroundPattern from "@/public/auth/background-pattern.svg";
-import BlackHorizontalLogo from "@/public/plane-logos/black-horizontal-with-blue-logo.png";
-import WhiteHorizontalLogo from "@/public/plane-logos/white-horizontal-with-blue-logo.png";
+import PfcLogo from "@/public/plane-logos/pfc-logo.png";
 import PlaneTakeOffImage from "@/public/plane-takeoff.png";
 
 export const InstanceNotReady: FC = () => {
   const { resolvedTheme } = useTheme();
   const patternBackground = resolvedTheme === "dark" ? PlaneBackgroundPatternDark : PlaneBackgroundPattern;
 
-  const logo = resolvedTheme === "light" ? BlackHorizontalLogo : WhiteHorizontalLogo;
+  const logo = PfcLogo;
 
   return (
     <div className="relative">
@@ -27,7 +26,7 @@ export const InstanceNotReady: FC = () => {
         <div className="container h-[110px] flex-shrink-0 mx-auto px-5 lg:px-0 flex items-center justify-between gap-5 z-50">
           <div className="flex items-center gap-x-2 py-10">
             <Link href={`/`} className="h-[30px] w-[133px]">
-              <Image src={logo} alt="Plane logo" />
+              <Image src={logo} alt="Pfc logo" />
             </Link>
           </div>
         </div>

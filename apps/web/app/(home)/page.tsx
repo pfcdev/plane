@@ -22,8 +22,7 @@ import { AuthenticationWrapper } from "@/lib/wrappers";
 // assets
 import PlaneBackgroundPatternDark from "@/public/auth/background-pattern-dark.svg";
 import PlaneBackgroundPattern from "@/public/auth/background-pattern.svg";
-import BlackHorizontalLogo from "@/public/plane-logos/black-horizontal-with-blue-logo.png";
-import WhiteHorizontalLogo from "@/public/plane-logos/white-horizontal-with-blue-logo.png";
+import PfcLogo from "@/public/plane-logos/pfc-logo.png";
 
 const HomePage = observer(() => {
   const { resolvedTheme } = useTheme();
@@ -34,7 +33,7 @@ const HomePage = observer(() => {
   // derived values
   const enableSignUpConfig = config?.enable_signup ?? false;
 
-  const logo = resolvedTheme === "light" ? BlackHorizontalLogo : WhiteHorizontalLogo;
+  const logo = PfcLogo;
 
   return (
     <DefaultLayout>
@@ -53,7 +52,7 @@ const HomePage = observer(() => {
               <div className="container relative flex items-center justify-between flex-shrink-0 min-w-full px-10 pb-4 transition-all lg:px-20 xl:px-36">
                 <div className="flex items-center py-10 gap-x-2">
                   <Link href={`/`} className="h-[30px] w-[133px]">
-                    <Image src={logo} alt="Plane logo" />
+                    <Image src={logo} alt="Pfc logo" />
                   </Link>
                 </div>
                 {enableSignUpConfig && (

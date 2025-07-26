@@ -16,8 +16,7 @@ import { EAuthModes, EPageTypes } from "@/helpers/authentication.helper";
 import { AuthenticationWrapper } from "@/lib/wrappers";
 import PlaneBackgroundPatternDark from "@/public/auth/background-pattern-dark.svg";
 import PlaneBackgroundPattern from "@/public/auth/background-pattern.svg";
-import BlackHorizontalLogo from "@/public/plane-logos/black-horizontal-with-blue-logo.png";
-import WhiteHorizontalLogo from "@/public/plane-logos/white-horizontal-with-blue-logo.png";
+import PfcLogo from "@/public/plane-logos/pfc-logo.png";
 
 export type AuthType = "sign-in" | "sign-up";
 
@@ -27,7 +26,7 @@ const SignInPage = observer(() => {
   // hooks
   const { resolvedTheme } = useTheme();
 
-  const logo = resolvedTheme === "light" ? BlackHorizontalLogo : WhiteHorizontalLogo;
+  const logo = PfcLogo;
 
   return (
     <AuthenticationWrapper pageType={EPageTypes.NON_AUTHENTICATED}>
@@ -43,7 +42,7 @@ const SignInPage = observer(() => {
           <div className="container min-w-full px-10 lg:px-20 xl:px-36 flex-shrink-0 relative flex items-center justify-between pb-4 transition-all">
             <div className="flex items-center gap-x-2 py-10">
               <Link href={`/`} className="h-[30px] w-[133px]">
-                <Image src={logo} alt="Plane logo" />
+                  <Image src={logo} alt="Pfc logo" />
               </Link>
             </div>
             <div className="flex flex-col items-end sm:items-center sm:gap-2 sm:flex-row  text-center text-sm font-medium text-onboarding-text-300">

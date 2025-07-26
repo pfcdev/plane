@@ -31,8 +31,7 @@ import { AuthenticationWrapper } from "@/lib/wrappers";
 import { WorkspaceService } from "@/plane-web/services";
 // images
 import emptyInvitation from "@/public/empty-state/invitation.svg";
-import BlackHorizontalLogo from "@/public/plane-logos/black-horizontal-with-blue-logo.png";
-import WhiteHorizontalLogo from "@/public/plane-logos/white-horizontal-with-blue-logo.png";
+import PfcLogo from "@/public/plane-logos/pfc-logo.png";
 
 const workspaceService = new WorkspaceService();
 
@@ -130,7 +129,7 @@ const UserInvitationsPage = observer(() => {
       });
   };
 
-  const logo = resolvedTheme === "light" ? BlackHorizontalLogo : WhiteHorizontalLogo;
+  const logo = PfcLogo;
 
   return (
     <AuthenticationWrapper>
@@ -142,7 +141,7 @@ const UserInvitationsPage = observer(() => {
             className="absolute left-5 top-1/2 grid -translate-y-1/2 place-items-center bg-custom-background-100 px-3 sm:left-1/2 sm:top-12 sm:-translate-x-[15px] sm:translate-y-0 sm:px-0 sm:py-5 md:left-1/3 z-10"
           >
             <div className="h-[30px] w-[133px]">
-              <Image src={logo} alt="Plane logo" />
+              <Image src={logo} alt="Pfc logo" />
             </div>
           </Link>
           <div className="absolute right-4 top-1/4 -translate-y-1/2 text-sm text-custom-text-100 sm:fixed sm:right-16 sm:top-12 sm:translate-y-0 sm:py-5">

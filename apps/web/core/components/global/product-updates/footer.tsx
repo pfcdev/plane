@@ -5,7 +5,7 @@ import { getButtonStyling } from "@plane/ui";
 // helpers
 import { cn } from "@plane/utils";
 // assets
-import PlaneLogo from "@/public/plane-logos/blue-without-text.png";
+import PfcLogo from "@/public/plane-logos/pfc-logo.png";
 
 export const ProductUpdatesFooter = () => {
   const { t } = useTranslation();
@@ -58,7 +58,7 @@ export const ProductUpdatesFooter = () => {
           "flex gap-1.5 items-center text-center font-medium hover:underline underline-offset-2 outline-none"
         )}
       >
-        <Image src={PlaneLogo} alt="Plane" width={12} height={12} />
+        <Image src={PfcLogo} alt="Pfc" width={12} height={12} />
         {t("powered_by_plane_pages")}
       </a>
     </div>

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Image from "next/image";
 // images
-import BluePlaneLogoWithoutText from "@/public/plane-logos/blue-without-text.png";
+import PfcLogo from "@/public/plane-logos/pfc-logo.png";
 // components
 import { OnboardingStepIndicator } from "./step-indicator";
 
@@ -16,7 +16,7 @@ export const OnboardingHeader: FC<OnboardingHeaderProps> = (props) => {
   return (
     <div className="flex w-full items-center justify-between font-semibold ">
       <div className="flex items-center gap-x-2">
-        <Image src={BluePlaneLogoWithoutText} height={30} width={30} alt="Plane Logo" className="mr-3" />
+        <Image src={PfcLogo} height={30} width={30} alt="Pfc Logo" className="mr-3" />
         <OnboardingStepIndicator currentStep={currentStep} totalSteps={totalSteps} />
       </div>
     </div>

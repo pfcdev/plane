@@ -4,7 +4,7 @@ import { useTranslation } from "@plane/i18n";
 // helpers
 import { cn } from "@plane/utils";
 // assets
-import PlaneLogo from "@/public/plane-logos/blue-without-text.png";
+import PfcLogo from "@/public/plane-logos/pfc-logo.png";
 // package.json
 import packageJson from "package.json";
 
@@ -23,7 +23,7 @@ export const ProductUpdatesHeader = observer(() => {
         </div>
       </div>
       <div className="flex flex-shrink-0 items-center gap-8">
-        <Image src={PlaneLogo} alt="Plane" width={24} height={24} />
+          <Image src={PfcLogo} alt="Pfc" width={24} height={24} />
       </div>
     </div>
   );

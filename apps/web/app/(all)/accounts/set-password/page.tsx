@@ -25,8 +25,7 @@ import { AuthenticationWrapper } from "@/lib/wrappers";
 // images
 import PlaneBackgroundPatternDark from "@/public/auth/background-pattern-dark.svg";
 import PlaneBackgroundPattern from "@/public/auth/background-pattern.svg";
-import BlackHorizontalLogo from "@/public/plane-logos/black-horizontal-with-blue-logo.png";
-import WhiteHorizontalLogo from "@/public/plane-logos/white-horizontal-with-blue-logo.png";
+import PfcLogo from "@/public/plane-logos/pfc-logo.png";
 import { AuthService } from "@/services/auth.service";
 
 type TResetPasswordFormValues = {
@@ -113,7 +112,7 @@ const SetPasswordPage = observer(() => {
   const confirmPassword = passwordFormData?.confirm_password ?? "";
   const renderPasswordMatchError = !isRetryPasswordInputFocused || confirmPassword.length >= password.length;
 
-  const logo = resolvedTheme === "light" ? BlackHorizontalLogo : WhiteHorizontalLogo;
+  const logo = PfcLogo;
 
   return (
     // TODO: change to EPageTypes.SET_PASSWORD
@@ -130,7 +129,7 @@ const SetPasswordPage = observer(() => {
           <div className="container min-w-full px-10 lg:px-20 xl:px-36 flex-shrink-0 relative flex items-center justify-between pb-4 transition-all">
             <div className="flex items-center gap-x-2 py-10">
               <Link href={`/`} className="h-[30px] w-[133px]">
-                <Image src={logo} alt="Plane logo" />
+                  <Image src={logo} alt="Pfc logo" />
               </Link>
             </div>
           </div>
