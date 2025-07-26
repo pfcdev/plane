@@ -36,7 +36,7 @@ const Root = observer(() => {
 
   const totalProjects = projects ? Object.keys(projects).length : 0;
   const totalRevenue = projects
-    ? Object.values(projects).reduce((acc: number, curr: any) => acc + (curr.price ?? 0), 0)
+    ? Object.values(projects).reduce((acc: number, curr: any) => acc + Number(curr.price ?? 0), 0)
     : 0;
 
   const isArchived = pathname.includes("/archives");
@@ -82,17 +82,17 @@ const Root = observer(() => {
     <>
       <PageHead title={pageTitle} />
       <div className="flex h-full w-full flex-col">
-        <div className="mb-4 rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-6 text-white shadow-lg">
+        <div className="mx-4 mb-4 rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-6 text-white shadow-lg">
           <div className="flex justify-between items-center">
             <div>
               <h2 className="text-2xl font-bold">Ödeme Paneli</h2>
               <p className="text-indigo-200">Tüm projelere genel bakış</p>
             </div>
-            <div className="text-right">
+            <div className="text-center">
               <div className="text-lg">Toplam Proje</div>
               <div className="text-3xl font-extrabold">{totalProjects}</div>
             </div>
-            <div className="text-right">
+            <div className="text-center">
               <div className="text-lg">Toplam Tutar</div>
               <div className="text-3xl font-extrabold">{totalRevenue.toLocaleString()} ₺</div>
             </div>
