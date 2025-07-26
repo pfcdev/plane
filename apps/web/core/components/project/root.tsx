@@ -20,7 +20,7 @@ const Root = observer(() => {
   const pathname = usePathname();
   const { t } = useTranslation();
   // store
-  const { totalProjectIds, filteredProjectIds } = useProject();
+  const { projects, totalProjectIds, filteredProjectIds } = useProject();
   const {
     currentWorkspaceFilters,
     currentWorkspaceAppliedDisplayFilters,
@@ -34,6 +34,11 @@ const Root = observer(() => {
     ? `${currentWorkspace?.name} - ${t("workspace_projects.label", { count: 2 })}`
     : undefined;
 
+  const totalProjects = projects ? Object.keys(projects).length : 0;
+  const totalRevenue = projects
+    ? Object.values(projects).reduce((acc: number, curr: any) => acc + (curr.price ?? 0), 0)
+    : 0;
+
   const isArchived = pathname.includes("/archives");
 
   const allowedDisplayFilters =
@@ -45,7 +50,7 @@ const Root = observer(() => {
       let newValues = currentWorkspaceFilters?.[key] ?? [];
 
       if (!value) newValues = [];
-      else newValues = newValues.filter((val) => val !== value);
+      else newValues = newValues.filter((val: any) => val !== value);
 
       updateFilters(workspaceSlug.toString(), { [key]: newValues });
     },
@@ -77,6 +82,22 @@ const Root = observer(() => {
     <>
       <PageHead title={pageTitle} />
       <div className="flex h-full w-full flex-col">
+        <div className="mb-4 rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-6 text-white shadow-lg">
+          <div className="flex justify-between items-center">
+            <div>
+              <h2 className="text-2xl font-bold">Ödeme Paneli</h2>
+              <p className="text-indigo-200">Tüm projelere genel bakış</p>
+            </div>
+            <div className="text-right">
+              <div className="text-lg">Toplam Proje</div>
+              <div className="text-3xl font-extrabold">{totalProjects}</div>
+            </div>
+            <div className="text-right">
+              <div className="text-lg">Toplam Tutar</div>
+              <div className="text-3xl font-extrabold">{totalRevenue.toLocaleString()} ₺</div>
+            </div>
+          </div>
+        </div>
         {(calculateTotalFilters(currentWorkspaceFilters ?? {}) !== 0 || allowedDisplayFilters.length > 0) && (
           <ProjectAppliedFiltersList
             appliedFilters={currentWorkspaceFilters ?? {}}

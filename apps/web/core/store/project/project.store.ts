@@ -25,6 +25,7 @@ export interface IProjectStore {
   projectMap: Record<string, TProject>; // projectId: project info
   projectAnalyticsCountMap: Record<string, TProjectAnalyticsCount>; // projectId: project analytics count
   // computed
+  projects: TProject[] | undefined;
   filteredProjectIds: string[] | undefined;
   workspaceProjectIds: string[] | undefined;
   archivedProjectIds: string[] | undefined;
@@ -101,6 +102,7 @@ export class ProjectStore implements IProjectStore {
       openCollapsibleSection: observable.ref,
       lastCollapsibleAction: observable.ref,
       // computed
+      projects: computed,
       filteredProjectIds: computed,
       workspaceProjectIds: computed,
       archivedProjectIds: computed,
@@ -158,6 +160,15 @@ export class ProjectStore implements IProjectStore {
     );
     workspaceProjects = orderProjects(workspaceProjects, displayFilters.order_by);
     return workspaceProjects.map((p) => p.id);
+  }
+
+  /**
+   * @description returns all projects in the workspace
+   */
+  get projects() {
+    const workspaceDetails = this.rootStore.workspaceRoot.currentWorkspace;
+    if (!workspaceDetails) return;
+    return Object.values(this.projectMap).filter((p) => p.workspace === workspaceDetails.id);
   }
 
   /**
