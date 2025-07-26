@@ -102,7 +102,7 @@ const ProjectAttributes: FC<Props> = (props) => {
         control={control}
         render={({ field }) => (
           <div className="flex-shrink-0 h-7">
-            <Input {...field} type="date" placeholder={t("start_date")} className="h-full" />
+            <Input {...field} value={field.value ?? ""} type="date" placeholder={t("start_date")} className="h-full" />
           </div>
         )}
       />
@@ -111,7 +111,7 @@ const ProjectAttributes: FC<Props> = (props) => {
         control={control}
         render={({ field }) => (
           <div className="flex-shrink-0 h-7">
-            <Input {...field} type="date" placeholder={t("target_date")} className="h-full" />
+            <Input {...field} value={field.value ?? ""} type="date" placeholder={t("target_date")} className="h-full" />
           </div>
         )}
       />
