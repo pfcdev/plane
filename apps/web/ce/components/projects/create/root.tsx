@@ -65,6 +65,11 @@ export const CreateProjectForm: FC<TCreateProjectFormProps> = observer((props) =
       formData.cover_image_asset = null;
     }
 
+    // Add the new fields to the form data
+    formData.price = formData.price;
+    formData.start_date = formData.start_date;
+    formData.target_date = formData.target_date;
+
     return createProject(workspaceSlug.toString(), formData)
       .then(async (res) => {
         if (coverImage) {

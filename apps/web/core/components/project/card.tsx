@@ -268,11 +268,19 @@ export const ProjectCard: React.FC<Props> = observer((props) => {
             "opacity-90": isArchived,
           })}
         >
-          <p className="line-clamp-2 break-words text-sm text-custom-text-300">
-            {project.description && project.description.trim() !== ""
-              ? project.description
-              : `Created on ${renderFormattedDate(project.created_at)}`}
-          </p>
+          <div className="text-sm text-custom-text-300">
+            {project.price && <span>Anlaşılan tutar: {project.price}₺</span>}
+            <br />
+            {project.target_date && (
+              <span>
+                Kalan Süre:{" "}
+                {Math.ceil(
+                  (new Date(project.target_date).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)
+                )}{" "}
+                gün
+              </span>
+            )}
+          </div>
           <div className="item-center flex justify-between">
             <div className="flex items-center justify-center gap-2">
               <Tooltip
@@ -286,7 +294,7 @@ export const ProjectCard: React.FC<Props> = observer((props) => {
                 {projectMembersIds && projectMembersIds.length > 0 ? (
                   <div className="flex cursor-pointer items-center gap-2 text-custom-text-200">
                     <AvatarGroup showTooltip={false}>
-                      {projectMembersIds.map((memberId) => {
+                      {projectMembersIds.map((memberId: any) => {
                         const member = getUserDetails(memberId);
                         if (!member) return null;
                         return (
@@ -335,7 +343,7 @@ export const ProjectCard: React.FC<Props> = observer((props) => {
                   (hasAdminRole || hasMemberRole ? (
                     <Link
                       className="flex items-center justify-center rounded p-1 text-custom-text-400 hover:bg-custom-background-80 hover:text-custom-text-200"
-                      onClick={(e) => {
+                      onClick={(e: any) => {
                         e.stopPropagation();
                       }}
                       href={`/${workspaceSlug}/settings/projects/${project.id}`}
