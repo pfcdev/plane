@@ -28,7 +28,8 @@ import { ProjectNetworkIcon } from "@/components/project";
 // helpers
 // hooks
 import { captureError, captureSuccess } from "@/helpers/event-tracker.helper";
-import { useProject, useCustomer } from "@/hooks/store";
+import { useProject, useUser, useWorkspace } from "@plane/hooks";
+import { useCustomer } from "@/hooks/use-customer";
 import { usePlatformOS } from "@/hooks/use-platform-os";
 import useSWR from "swr";
 // services

@@ -8,6 +8,7 @@
       "@/public/*": ["public/*"],
       "@/styles/*": ["styles/*"],
       "@/services/*": ["core/services/*"],
+      "@/hooks/*": ["core/hooks/*"],
       "@/plane-web/*": ["ce/*"]
     },
     "plugins": [{ "name": "next" }],

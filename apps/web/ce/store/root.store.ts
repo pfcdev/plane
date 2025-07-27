@@ -1,5 +1,5 @@
 // store
-import { CoreRootStore } from "@/store/root.store";
+import { RootStore as CoreRootStore } from "@/store/root.store";
 import { ITimelineStore, TimeLineStore } from "./timeline";
 
 export class RootStore extends CoreRootStore {
