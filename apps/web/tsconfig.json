@@ -7,6 +7,7 @@
       "@/helpers/*": ["helpers/*"],
       "@/public/*": ["public/*"],
       "@/styles/*": ["styles/*"],
+      "@/services/*": ["core/services/*"],
       "@/plane-web/*": ["ce/*"]
     },
     "plugins": [{ "name": "next" }],
